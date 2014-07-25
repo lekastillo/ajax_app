@@ -13,7 +13,7 @@ group :assets do
 	gem 'uglifier', '>= 1.3.0'
 	gem 'coffee-rails', '~> 4.0.0'
 	gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
-	#gem 'simple_form', github: 'plataformatec/simple_form', branch: 'bootstrap3'
+	gem 'simple_form', github: 'plataformatec/simple_form', branch: 'bootstrap3'
 
 end
 
