@@ -1,0 +1,31 @@
+<%- model_class = Category -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:image) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody id="tbl_categories">
+    <%=render @categories %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_category_path,
+            :class => 'btn btn-primary' %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            "#new_category_modal",
+            :class => 'btn btn-info', id: "new_category", :data => {:toggle => 'modal'} %>
+<%#= content_tag :a, "New_Category", :href => "#new_category_modal", :class => 'btn btn-info', :data => {:toggle => 'modal'} %>
+
+<%= modal_dialog :id => "new_category_modal",
+         :header => { :show_close => true, :dismiss => 'modal', :title => 'Modal header' },
+                 :body   => content_tag(:div,render(partial: "form_ajax"),:class=>"panel-body") %>

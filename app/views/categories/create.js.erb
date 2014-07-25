@@ -1,0 +1,11 @@
+<% if @category.errors.any? %>
+  $("div#error_div").html("<%= escape_javascript(render 'errors') %>");
+  <% @category.errors.full_messages.each do |message| %>
+    $("ul#errors").append($("<li />").html("<%= message.html_safe %>"));
+  <% end %>
+<% else %>
+  console.log("<%= escape_javascript(render @category) %>");
+  $("tbody#tbl_categories").append("<%= escape_javascript(render @category) %>");
+  $('form#new_category')[0].reset();
+  $("#new_category_modal").modal("hide");
+<% end %>

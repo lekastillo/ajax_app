@@ -1,0 +1,25 @@
+en:
+  activerecord:
+    models: 
+      user: "Customer"
+      category: "Categoria"
+    attributes:
+      category: 
+        name: "Nombre"
+        description: "Descripción"
+        image: "Foto"
+        created_at: "Fecha Creación"
+        updated_at: "Ultima actualización"
+      user:
+        email: "Email address"
+    errors:
+      models:
+        user:
+          attributes:
+            source_system_id:
+              blank: "must fill %{attribute}" 
+              taken: " Id User already provisioned"
+            entity_type:
+              inclusion: "should be Customer or User"
+            target_system:
+              inclusion: "should be LOCAL or OPENAM"
